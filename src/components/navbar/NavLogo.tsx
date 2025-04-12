@@ -11,7 +11,7 @@ const NavLogo: React.FC<NavLogoProps> = ({ isScrolled }) => {
       <div className={`font-serif font-bold text-2xl md:text-3xl transition-colors duration-300 ${
         isScrolled ? 'text-p85-green-dark' : 'text-white'
       }`}>
-        PORTION 85
+        PORTION <span className="text-p85-sunset">85</span>
       </div>
     </a>
   );

@@ -16,7 +16,7 @@ const ContactSection = () => {
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mr-4 text-p85-green">
+                  <div className="flex-shrink-0 mr-4 text-p85-sunset">
                     <Phone size={24} />
                   </div>
                   <div>
@@ -27,7 +27,7 @@ const ContactSection = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mr-4 text-p85-green">
+                  <div className="flex-shrink-0 mr-4 text-p85-sunset">
                     <MapPin size={24} />
                   </div>
                   <div>
@@ -38,12 +38,14 @@ const ContactSection = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mr-4 text-p85-green">
+                  <div className="flex-shrink-0 mr-4 text-p85-sunset">
                     <Mail size={24} />
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold mb-1">Email / RSVP</h4>
-                    <p className="text-gray-700">info@portion85.co.za</p>
+                    <a href="mailto:info@portion85.co.za" className="text-gray-700 hover:text-p85-sunset transition-colors">
+                      info@portion85.co.za
+                    </a>
                   </div>
                 </div>
               </div>
