@@ -1,12 +1,31 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { initScrollAnimation } from '../utils/animation';
 import { CalendarIcon, Users, Clock } from 'lucide-react';
 
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  date: string;
+  time: string;
+  guests: string;
+  eventType: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  date?: string;
+  time?: string;
+  guests?: string;
+}
+
 const ReservationPage = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
@@ -17,7 +36,7 @@ const ReservationPage = () => {
     message: '',
   });
 
-  const [formErrors, setFormErrors] = useState({});
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -31,7 +50,7 @@ const ReservationPage = () => {
   }, []);
 
   const validateForm = () => {
-    const errors = {};
+    const errors: FormErrors = {};
     
     if (!formData.name) errors.name = "Name is required";
     if (!formData.email) {
@@ -47,7 +66,7 @@ const ReservationPage = () => {
     return errors;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -55,7 +74,7 @@ const ReservationPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     const errors = validateForm();
