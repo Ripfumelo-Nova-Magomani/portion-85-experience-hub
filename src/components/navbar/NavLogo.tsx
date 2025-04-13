@@ -8,13 +8,11 @@ interface NavLogoProps {
 const NavLogo: React.FC<NavLogoProps> = ({ isScrolled }) => {
   return (
     <a href="#home" className="flex items-center">
-      <img 
-        src="/portion85-logo.png" 
-        alt="Portion 85 Logo" 
-        className={`h-10 md:h-12 transition-all duration-300 ${
-          isScrolled ? 'opacity-100' : 'opacity-100'
-        }`}
-      />
+      <div className={`font-serif font-bold text-2xl md:text-3xl transition-colors duration-300 flex items-center ${
+        isScrolled ? 'text-black' : 'text-white'
+      }`}>
+        PORTION <span className="text-[#F97316]">85</span>
+      </div>
     </a>
   );
 };
