@@ -4,19 +4,18 @@ import { MapPin, Phone, Mail, CheckCircle } from 'lucide-react';
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-16 md:py-24 relative bg-gradient-to-br from-p85-green-light/20 to-p85-earth-light/20">
+    <section id="contact" className="py-16 md:py-24 relative bg-gradient-to-br from-green-500/20 to-orange-500/20">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="section-title text-center mb-16 animated-scroll-item">CONTACT US</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
           <div className="animated-scroll-item">
             <div className="bg-white rounded-lg shadow-md p-8">
-              <h3 className="text-2xl font-bold text-p85-green-dark mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-bold text-black mb-6">Get in Touch</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mr-4 text-p85-sunset">
+                  <div className="flex-shrink-0 mr-4 text-[#F97316]">
                     <Phone size={24} />
                   </div>
                   <div>
@@ -27,7 +26,7 @@ const ContactSection = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mr-4 text-p85-sunset">
+                  <div className="flex-shrink-0 mr-4 text-[#F97316]">
                     <MapPin size={24} />
                   </div>
                   <div>
@@ -38,12 +37,15 @@ const ContactSection = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mr-4 text-p85-sunset">
+                  <div className="flex-shrink-0 mr-4 text-[#F97316]">
                     <Mail size={24} />
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold mb-1">Email / RSVP</h4>
-                    <a href="mailto:info@portion85.co.za" className="text-gray-700 hover:text-p85-sunset transition-colors">
+                    <a 
+                      href="mailto:info@portion85.co.za" 
+                      className="text-gray-700 hover:text-[#F97316] transition-colors"
+                    >
                       info@portion85.co.za
                     </a>
                   </div>
