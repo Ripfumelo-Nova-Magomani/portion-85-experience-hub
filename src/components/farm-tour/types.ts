@@ -8,4 +8,5 @@ export type LocationType = {
   description: string;
   image: string;
   icon: ReactNode;
+  animationDelay?: number; // Optional delay for staggered animations
 };
