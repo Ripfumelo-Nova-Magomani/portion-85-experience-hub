@@ -22,12 +22,10 @@ const MapPath: React.FC<MapPathProps> = ({
     <path
       d={path}
       stroke="#FF7F50"
-      strokeWidth="2.5"
+      strokeWidth="3"
       fill="none"
       strokeDasharray="5,5"
-      className="animate-dash opacity-70 drop-shadow-sm"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      className="animate-dash"
     />
   );
 };

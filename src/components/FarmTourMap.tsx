@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import LocationPin from './farm-tour/LocationPin';
 import LocationDetailDialog from './farm-tour/LocationDetailDialog';
 import MapPathsGenerator from './farm-tour/MapPathsGenerator';
@@ -8,16 +8,6 @@ import { LocationType } from './farm-tour/types';
 
 const FarmTourMap: React.FC = () => {
   const [selectedLocation, setSelectedLocation] = useState<LocationType | null>(null);
-  const [animationComplete, setAnimationComplete] = useState(false);
-
-  // Control the staggered animation of location pins
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimationComplete(true);
-    }, 1000); // Give paths time to animate before showing pins
-    
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleLocationClick = (location: LocationType) => {
     setSelectedLocation(location);
@@ -28,19 +18,20 @@ const FarmTourMap: React.FC = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-p85-green-light/10 to-p85-earth-light/20">
+    <section className="py-16 bg-muted">
       <div className="container mx-auto px-4">
-        <h2 className="section-title mb-6 text-center">Farm Tour Map</h2>
-        <p className="text-center text-lg mb-10 max-w-2xl mx-auto">
-          Explore our farm by clicking on the location markers to discover all the exciting spots at Portion 85!
+        <h2 className="section-title mb-12 text-center">Farm Tour Map</h2>
+        <p className="text-center text-lg mb-8">
+          Explore our farm by clicking on the map pins to discover all the exciting locations!
         </p>
         
-        <div className="relative mx-auto w-full max-w-4xl aspect-[4/3] bg-gradient-to-br from-[#e3f4e1] to-[#c8e6c3] rounded-xl shadow-xl overflow-hidden">
-          {/* Decorative background elements */}
+        <div className="relative mx-auto w-full max-w-4xl aspect-[4/3] bg-gradient-to-br from-[#e3f4e1] to-[#a8e0a2] rounded-lg shadow-xl overflow-hidden">
           <div className="absolute inset-0 opacity-20 bg-pattern"></div>
-          <div className="absolute top-1/4 left-1/3 w-64 h-32 rounded-full bg-p85-green-light/40 transform -rotate-12"></div>
+          
+          {/* Farm features (silhouette) */}
+          <div className="absolute top-1/4 left-1/3 w-64 h-32 rounded-full bg-p85-green-light/30 transform -rotate-12"></div>
           <div className="absolute bottom-1/4 right-1/3 w-48 h-24 rounded-full bg-p85-earth-light/40"></div>
-          <div className="absolute top-1/2 right-1/4 w-36 h-36 rounded-full bg-p85-sky-light/40"></div>
+          <div className="absolute top-1/2 right-1/4 w-32 h-32 rounded-full bg-p85-sky-light/30"></div>
           
           {/* Map container with SVG for paths */}
           <div className="absolute inset-0">
@@ -48,27 +39,20 @@ const FarmTourMap: React.FC = () => {
               <MapPathsGenerator locations={locations} />
             </svg>
             
-            {/* Location pins with staggered animation */}
-            <div className={`transition-opacity duration-700 ${animationComplete ? 'opacity-100' : 'opacity-0'}`}>
-              {locations.map((location, index) => (
-                <div 
-                  key={location.id}
-                  className="animate-fade-in" 
-                  style={{ animationDelay: `${index * 200 + 1000}ms`, animationFillMode: 'both' }}
-                >
-                  <LocationPin
-                    location={location}
-                    onClick={handleLocationClick}
-                  />
-                </div>
-              ))}
-            </div>
+            {/* Pins for each location */}
+            {locations.map((location) => (
+              <LocationPin
+                key={location.id}
+                location={location}
+                onClick={handleLocationClick}
+              />
+            ))}
           </div>
           
           {/* Map legend */}
-          <div className="absolute top-4 left-4 bg-white/90 p-3 rounded-lg shadow-md border border-white animate-fade-in">
+          <div className="absolute top-4 left-4 bg-white/80 p-3 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-p85-green-dark mb-1">Portion 85 Tour</h3>
-            <p className="text-sm text-muted-foreground">Click on markers to explore</p>
+            <p className="text-sm text-muted-foreground">Click on pins to explore</p>
           </div>
         </div>
         
