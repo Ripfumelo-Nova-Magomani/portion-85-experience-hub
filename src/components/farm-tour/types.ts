@@ -8,4 +8,6 @@ export type LocationType = {
   description: string;
   image: string;
   icon: ReactNode;
+  tourOrder?: number; // Optional property for the tour sequence
 };
+

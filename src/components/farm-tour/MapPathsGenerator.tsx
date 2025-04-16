@@ -5,9 +5,10 @@ import { LocationType } from './types';
 
 interface MapPathsGeneratorProps {
   locations: LocationType[];
+  highlightIndex?: number;
 }
 
-const MapPathsGenerator: React.FC<MapPathsGeneratorProps> = ({ locations }) => {
+const MapPathsGenerator: React.FC<MapPathsGeneratorProps> = ({ locations, highlightIndex = -1 }) => {
   // Create paths connecting locations in order
   const createPaths = () => {
     const paths = [];
@@ -21,13 +22,17 @@ const MapPathsGenerator: React.FC<MapPathsGeneratorProps> = ({ locations }) => {
       const toX = to.coordinates.x;
       const toY = to.coordinates.y;
       
+      // Determine if this path should be highlighted (current path in the tour)
+      const isHighlighted = highlightIndex === i;
+      
       paths.push(
         <MapPath 
           key={`path-${from.id}-to-${to.id}`} 
           fromX={fromX} 
           fromY={fromY} 
           toX={toX} 
-          toY={toY} 
+          toY={toY}
+          highlighted={isHighlighted}
         />
       );
     }
@@ -41,6 +46,7 @@ const MapPathsGenerator: React.FC<MapPathsGeneratorProps> = ({ locations }) => {
         fromY={lastLocation.coordinates.y}
         toX={firstLocation.coordinates.x}
         toY={firstLocation.coordinates.y}
+        highlighted={highlightIndex === locations.length - 1}
       />
     );
     
