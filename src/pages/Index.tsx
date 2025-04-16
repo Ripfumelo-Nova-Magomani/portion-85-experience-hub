@@ -5,6 +5,7 @@ import HeroSlider from '../components/HeroSlider';
 import AboutSection from '../components/AboutSection';
 import FacilitiesSection from '../components/FacilitiesSection';
 import ServicesSection from '../components/ServicesSection';
+import FarmTourMap from '../components/FarmTourMap';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import { initScrollAnimation } from '../utils/animation';
@@ -61,6 +62,9 @@ const Index = () => {
       </div>
       <div id="services">
         <ServicesSection />
+      </div>
+      <div id="tour-map" className="animated-scroll-item">
+        <FarmTourMap />
       </div>
       <div id="contact">
         <ContactSection />
