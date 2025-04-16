@@ -6,13 +6,12 @@ import { LocationType } from './types';
 interface LocationPinProps {
   location: LocationType;
   onClick: (location: LocationType) => void;
-  highlightClass?: string;
 }
 
-const LocationPin: React.FC<LocationPinProps> = ({ location, onClick, highlightClass = '' }) => {
+const LocationPin: React.FC<LocationPinProps> = ({ location, onClick }) => {
   return (
     <div
-      className={`absolute cursor-pointer transition-transform hover:scale-110 ${highlightClass}`}
+      className="absolute cursor-pointer transition-transform hover:scale-110"
       style={{ 
         left: `${location.coordinates.x}%`, 
         top: `${location.coordinates.y}%` 
