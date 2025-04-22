@@ -11,7 +11,7 @@ const NavLogo: React.FC<NavLogoProps> = ({ isScrolled }) => {
       <img 
         src="/portion85-logo.png" 
         alt="Portion 85 Logo" 
-        className={`h-10 md:h-12 transition-all duration-300 ${
+        className={`h-12 md:h-16 transition-all duration-300 object-contain ${
           isScrolled ? 'opacity-100' : 'opacity-100'
         }`}
       />
